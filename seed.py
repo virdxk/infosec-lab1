@@ -19,8 +19,7 @@ DEMO_POSTS = [
 
 def main() -> None:
     app = create_app()
-    session = app.session_factory()
-    try:
+    with app.session_factory() as session:
         for username, password, role in DEMO_USERS:
             if session.scalar(select(User).where(User.username == username)):
                 continue
@@ -35,9 +34,8 @@ def main() -> None:
                 continue
             session.add(Post(author_id=author.id, title=title, body=body))
         session.commit()
-        print("seed completed")
-    finally:
-        session.close()
+
+    print("seed completed")
 
 
 if __name__ == "__main__":

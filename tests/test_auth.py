@@ -1,5 +1,7 @@
 import pytest
+from sqlalchemy import select
 
+from app.models import User
 from tests.conftest import TEST_PASSWORD, TEST_USERNAME
 
 
@@ -45,10 +47,6 @@ def test_login_rejects_password_over_bcrypt_byte_limit(client, password):
 
 @pytest.mark.parametrize("password", ["a" * 72, "я" * 36])
 def test_login_accepts_password_at_bcrypt_byte_limit(client, app, password):
-    from sqlalchemy import select
-
-    from app.models import User
-
     with app.session_factory() as session:
         user = session.scalar(select(User).where(User.username == TEST_USERNAME))
         user.set_password(password, app.config["BCRYPT_ROUNDS"])
@@ -72,15 +70,8 @@ def test_sql_injection_in_username_does_not_grant_access(client):
 
 
 def test_password_is_stored_as_bcrypt_hash(app):
-    from sqlalchemy import select
-
-    from app.models import User
-
-    session = app.session_factory()
-    try:
+    with app.session_factory() as session:
         user = session.scalar(select(User).where(User.username == TEST_USERNAME))
         assert user.password_hash != TEST_PASSWORD
         assert user.password_hash.startswith("$2b$")
         assert len(user.password_hash) == 60
-    finally:
-        session.close()

@@ -18,7 +18,12 @@ def login():
     username = data.get("username")
     password = data.get("password")
 
-    if not isinstance(username, str) or not isinstance(password, str) or not username or not password:
+    if (
+        not isinstance(username, str)
+        or not isinstance(password, str)
+        or not username
+        or not password
+    ):
         return jsonify({"error": "username and password are required"}), 400
     if len(username) > current_app.config["MAX_USERNAME_LENGTH"]:
         return jsonify({"error": "username is too long"}), 400

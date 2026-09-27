@@ -27,7 +27,12 @@ def create_post():
     title = data.get("title")
     body = data.get("body")
 
-    if not isinstance(title, str) or not isinstance(body, str) or not title.strip() or not body.strip():
+    if (
+        not isinstance(title, str)
+        or not isinstance(body, str)
+        or not title.strip()
+        or not body.strip()
+    ):
         return jsonify({"error": "title and body are required"}), 400
     if len(title) > current_app.config["MAX_TITLE_LENGTH"]:
         return jsonify({"error": "title is too long"}), 400

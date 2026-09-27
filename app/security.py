@@ -17,7 +17,11 @@ def issue_token(user: User) -> str:
         "iat": int(now.timestamp()),
         "exp": int((now + timedelta(seconds=current_app.config["JWT_TTL_SECONDS"])).timestamp()),
     }
-    return jwt.encode(payload, current_app.config["JWT_SECRET"], algorithm=current_app.config["JWT_ALGORITHM"])
+    return jwt.encode(
+        payload,
+        current_app.config["JWT_SECRET"],
+        algorithm=current_app.config["JWT_ALGORITHM"],
+    )
 
 
 def decode_token(token: str) -> dict:

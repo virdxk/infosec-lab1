@@ -21,16 +21,13 @@ def app(tmp_path):
         }
     )
 
-    session = application.session_factory()
-    try:
+    with application.session_factory() as session:
         user = User(username=TEST_USERNAME, role="user")
         user.set_password(TEST_PASSWORD, application.config["BCRYPT_ROUNDS"])
         session.add(user)
         session.commit()
         session.add(Post(author_id=user.id, title="Seeded", body="Seeded body"))
         session.commit()
-    finally:
-        session.close()
 
     return application
 
