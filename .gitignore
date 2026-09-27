@@ -6,3 +6,5 @@ __pycache__/
 .pytest_cache/
 bandit-report.json
 pip-audit-report.json
+
+docs/theory.md
