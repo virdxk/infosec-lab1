@@ -15,7 +15,7 @@ class Config:
     DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///app.db")
     BCRYPT_ROUNDS = int(os.environ.get("BCRYPT_ROUNDS", "12"))
     MAX_USERNAME_LENGTH = 64
-    MAX_PASSWORD_LENGTH = 128
+    MAX_PASSWORD_BYTES = 72
     MAX_TITLE_LENGTH = 200
     MAX_BODY_LENGTH = 5000
 

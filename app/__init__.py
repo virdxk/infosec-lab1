@@ -15,8 +15,8 @@ def create_app(config_overrides: dict | None = None) -> Flask:
     app.engine = engine
     app.session_factory = session_factory
 
-    from app.api import bp as api_bp
-    from app.auth import bp as auth_bp
+    from app.api import api_bp
+    from app.auth import auth_bp
 
     app.register_blueprint(auth_bp)
     app.register_blueprint(api_bp)

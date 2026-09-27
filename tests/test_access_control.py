@@ -1,6 +1,7 @@
 from datetime import datetime, timedelta, timezone
 
 import jwt
+import pytest
 
 
 def test_data_requires_token(client):
@@ -29,7 +30,7 @@ def test_token_signed_with_another_key_is_rejected(client, app):
         "iat": int(datetime.now(timezone.utc).timestamp()),
         "exp": int((datetime.now(timezone.utc) + timedelta(hours=1)).timestamp()),
     }
-    forged = jwt.encode(payload, "attacker-secret", algorithm="HS256")
+    forged = jwt.encode(payload, "attacker-secret-that-is-at-least-32-bytes", algorithm="HS256")
     response = client.get("/api/data", headers={"Authorization": f"Bearer {forged}"})
     assert response.status_code == 401
 
@@ -63,3 +64,36 @@ def test_expired_token_is_rejected(client, app):
 def test_create_post_requires_token(client):
     response = client.post("/api/posts", json={"title": "t", "body": "b"})
     assert response.status_code == 401
+
+
+@pytest.mark.parametrize("subject", ["not-an-id", "9" * 100, "999", 1, 1.5])
+@pytest.mark.parametrize("method, path", [("GET", "/api/data"), ("POST", "/api/posts")])
+def test_invalid_subject_is_rejected_before_api_handler(client, app, subject, method, path):
+    now = datetime.now(timezone.utc)
+    token = jwt.encode(
+        {"sub": subject, "iat": int(now.timestamp()), "exp": int((now + timedelta(hours=1)).timestamp())},
+        app.config["JWT_SECRET"],
+        algorithm="HS256",
+    )
+
+    response = client.open(path, method=method, headers={"Authorization": f"Bearer {token}"})
+    assert response.status_code == 401
+    assert response.get_json() == {"error": "invalid token"}
+
+
+def test_health_stays_public(client):
+    response = client.get("/health")
+    assert response.status_code == 200
+    assert response.get_json() == {"status": "ok"}
+
+
+def test_authentication_runs_before_post_validation(client):
+    response = client.post("/api/posts", data='[1]', content_type="application/json")
+    assert response.status_code == 401
+
+
+@pytest.mark.parametrize("path, allowed_method", [("/api/data", "GET"), ("/api/posts", "POST")])
+def test_automatic_options_stays_public(client, path, allowed_method):
+    response = client.options(path)
+    assert response.status_code == 200
+    assert allowed_method in response.headers["Allow"]

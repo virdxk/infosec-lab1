@@ -1,3 +1,6 @@
+import pytest
+
+
 def test_create_post(client, auth_headers):
     response = client.post("/api/posts", json={"title": "Hello", "body": "World"}, headers=auth_headers)
     assert response.status_code == 201
@@ -10,6 +13,13 @@ def test_create_post_validates_input(client, auth_headers):
     for payload in [{}, {"title": "only title"}, {"title": "", "body": ""}, {"title": 1, "body": 2}]:
         response = client.post("/api/posts", json=payload, headers=auth_headers)
         assert response.status_code == 400, payload
+
+
+@pytest.mark.parametrize("body", ['[1]', '"text"', '7', 'true', 'null', '{'])
+def test_create_post_rejects_invalid_json_body(client, auth_headers, body):
+    response = client.post("/api/posts", data=body, content_type="application/json", headers=auth_headers)
+    assert response.status_code == 400
+    assert response.get_json() == {"error": "title and body are required"}
 
 
 def test_oversized_body_is_rejected(client, auth_headers):

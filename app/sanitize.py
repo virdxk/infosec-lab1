@@ -1,17 +1,13 @@
 from markupsafe import escape
 
-
-def clean(value: str | None) -> str:
-    if value is None:
-        return ""
-    return str(escape(value))
+from app.models import Post
 
 
-def clean_post(post) -> dict:
+def serialize_post(post: Post) -> dict:
     return {
         "id": post.id,
-        "title": clean(post.title),
-        "body": clean(post.body),
-        "author": clean(post.author.username),
+        "title": str(escape(post.title)),
+        "body": str(escape(post.body)),
+        "author": str(escape(post.author.username)),
         "created_at": post.created_at.isoformat(),
     }

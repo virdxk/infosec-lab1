@@ -2,17 +2,19 @@ from flask import Blueprint, current_app, jsonify, request
 from sqlalchemy import select
 
 from app.models import User
-from app.security import issue_token
+from app.security import AUTH_SCHEME, issue_token
 
-bp = Blueprint("auth", __name__, url_prefix="/auth")
+auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 INVALID_CREDENTIALS = {"error": "invalid credentials"}
-AUTH_SCHEME = "Bearer"
 
 
-@bp.post("/login")
+@auth_bp.post("/login")
 def login():
-    data = request.get_json(silent=True) or {}
+    data = request.get_json(silent=True)
+    if not isinstance(data, dict):
+        return jsonify({"error": "username and password are required"}), 400
+
     username = data.get("username")
     password = data.get("password")
 
@@ -20,17 +22,14 @@ def login():
         return jsonify({"error": "username and password are required"}), 400
     if len(username) > current_app.config["MAX_USERNAME_LENGTH"]:
         return jsonify({"error": "username is too long"}), 400
-    if len(password) > current_app.config["MAX_PASSWORD_LENGTH"]:
+    if len(password.encode("utf-8")) > current_app.config["MAX_PASSWORD_BYTES"]:
         return jsonify({"error": "password is too long"}), 400
 
-    session = current_app.session_factory()
-    try:
+    with current_app.session_factory() as session:
         user = session.scalar(select(User).where(User.username == username))
         if user is None or not user.check_password(password):
             return jsonify(INVALID_CREDENTIALS), 401
         token = issue_token(user)
-    finally:
-        session.close()
 
     return (
         jsonify(
