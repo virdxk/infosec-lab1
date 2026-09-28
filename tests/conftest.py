@@ -15,7 +15,6 @@ def app(tmp_path):
         {
             "TESTING": True,
             "DATABASE_URL": database_url,
-            "SECRET_KEY": TEST_SECRET,
             "JWT_SECRET": TEST_SECRET,
             "BCRYPT_ROUNDS": 4,
         }

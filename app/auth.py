@@ -25,10 +25,6 @@ def login():
         or not password
     ):
         return jsonify({"error": "username and password are required"}), 400
-    if len(username) > current_app.config["MAX_USERNAME_LENGTH"]:
-        return jsonify({"error": "username is too long"}), 400
-    if len(password.encode("utf-8")) > current_app.config["MAX_PASSWORD_BYTES"]:
-        return jsonify({"error": "password is too long"}), 400
 
     with current_app.session_factory() as session:
         user = session.scalar(select(User).where(User.username == username))

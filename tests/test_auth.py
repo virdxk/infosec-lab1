@@ -41,8 +41,8 @@ def test_login_rejects_invalid_json_body(client, body):
 @pytest.mark.parametrize("password", ["a" * 73, "я" * 37])
 def test_login_rejects_password_over_bcrypt_byte_limit(client, password):
     response = client.post("/auth/login", json={"username": TEST_USERNAME, "password": password})
-    assert response.status_code == 400
-    assert response.get_json() == {"error": "password is too long"}
+    assert response.status_code == 401
+    assert response.get_json() == {"error": "invalid credentials"}
 
 
 @pytest.mark.parametrize("password", ["a" * 72, "я" * 36])
@@ -57,9 +57,9 @@ def test_login_accepts_password_at_bcrypt_byte_limit(client, app, password):
     assert response.get_json()["token_type"] == "Bearer"
 
 
-def test_login_with_oversized_username_is_rejected(client):
+def test_unknown_long_username_returns_invalid_credentials(client):
     response = client.post("/auth/login", json={"username": "a" * 500, "password": TEST_PASSWORD})
-    assert response.status_code == 400
+    assert response.status_code == 401
 
 
 def test_sql_injection_in_username_does_not_grant_access(client):

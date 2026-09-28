@@ -34,10 +34,6 @@ def create_post():
         or not body.strip()
     ):
         return jsonify({"error": "title and body are required"}), 400
-    if len(title) > current_app.config["MAX_TITLE_LENGTH"]:
-        return jsonify({"error": "title is too long"}), 400
-    if len(body) > current_app.config["MAX_BODY_LENGTH"]:
-        return jsonify({"error": "body is too long"}), 400
 
     with current_app.session_factory() as session:
         post = Post(author_id=g.current_user_id, title=title.strip(), body=body.strip())

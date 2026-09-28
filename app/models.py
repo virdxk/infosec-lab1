@@ -29,7 +29,10 @@ class User(Base):
         self.password_hash = bcrypt.hashpw(password.encode("utf-8"), salt).decode("utf-8")
 
     def check_password(self, password: str) -> bool:
-        return bcrypt.checkpw(password.encode("utf-8"), self.password_hash.encode("utf-8"))
+        password_bytes = password.encode("utf-8")
+        if len(password_bytes) > 72:
+            return False
+        return bcrypt.checkpw(password_bytes, self.password_hash.encode("utf-8"))
 
 
 class Post(Base):

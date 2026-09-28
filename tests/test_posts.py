@@ -22,9 +22,11 @@ def test_create_post_rejects_invalid_json_body(client, auth_headers, body):
     assert response.get_json() == {"error": "title and body are required"}
 
 
-def test_oversized_body_is_rejected(client, auth_headers):
-    response = client.post("/api/posts", json={"title": "t", "body": "x" * 6000}, headers=auth_headers)
-    assert response.status_code == 400
+def test_post_has_no_custom_length_limits(client, auth_headers):
+    response = client.post("/api/posts", json={"title": "t" * 300, "body": "x" * 6000}, headers=auth_headers)
+    assert response.status_code == 201
+    assert response.get_json()["title"] == "t" * 300
+    assert response.get_json()["body"] == "x" * 6000
 
 
 def test_xss_payload_is_escaped_in_response(client, auth_headers):
