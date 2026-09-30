@@ -1,0 +1,507 @@
+{
+    "reportSchema": "1.1",
+    "scanInfo": {
+        "engineVersion": "13.0.0",
+        "dataSource": [
+{
+                "name": "NVD API Last Checked",
+                "timestamp": "2026-09-30T09:41:08Z"
+            }
+,{
+                "name": "NVD API Last Modified",
+                "timestamp": "2026-09-30T01:00:06-04"
+            }
+,{
+                "name": "NVD Cache Last Checked",
+                "timestamp": "2026-09-30T09:41:08Z"
+            }
+,{
+                "name": "NVD Cache Last Modified",
+                "timestamp": "2026-09-30T01:00:06-04"
+            }
+        ]
+
+
+    },
+    "projectInfo": {
+        "name": "infosec-lab1",
+        "reportDate": "2026-09-30T09:46:35.977543Z",
+        "credits": {
+            "NVD": "This product uses the NVD API but is not endorsed or certified by the NVD. This report contains data retrieved from the National Vulnerability Database: https://nvd.nist.gov",
+            "CISA": "This report may contain data retrieved from the CISA Known Exploited Vulnerability Catalog: https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+            "NPM": "This report may contain data retrieved from the Github Advisory Database (via NPM Audit API): https://github.com/advisories/",
+            "RETIREJS": "This report may contain data retrieved from the RetireJS community: https://retirejs.github.io/retire.js/",
+            "OSSINDEX": "This report may contain data retrieved from the Sonatype Guide OSS Index API: https://www.sonatype.com/products/sonatype-guide/oss-index-users"
+        }
+    },
+    "dependencies": [
+{
+            "isVirtual": true,
+            "fileName": "bcrypt:5.0.0",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:bcrypt\/5.0.0"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "bcrypt"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "bcrypt"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "5.0.0"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/bcrypt@5.0.0"
+,"confidence": "HIGHEST"                    }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "blinker:1.9.0",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:blinker\/1.9.0"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "blinker"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "blinker"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "1.9.0"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/blinker@1.9.0"
+,"confidence": "HIGHEST"                    }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "click:8.5.0",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:click\/8.5.0"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "click"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "click"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "8.5.0"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/click@8.5.0"
+,"confidence": "HIGHEST"                    }
+            ]                ,"vulnerabilityIds": [
+                {
+                    "id": "cpe:2.3:a:click_project:click:8.5.0:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Aclick_project%3Aclick%3A8.5.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "flask:3.1.3",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:flask\/3.1.3"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "flask"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "flask"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "3.1.3"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/flask@3.1.3"
+,"confidence": "HIGHEST"                    }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "itsdangerous:2.2.0",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:itsdangerous\/2.2.0"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "itsdangerous"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "itsdangerous"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "2.2.0"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/itsdangerous@2.2.0"
+,"confidence": "HIGHEST"                    }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "jinja2:3.1.6",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:jinja2\/3.1.6"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "jinja2"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "jinja2"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "3.1.6"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/jinja2@3.1.6"
+,"confidence": "HIGHEST"                    }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "markupsafe:3.0.3",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:markupsafe\/3.0.3"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "markupsafe"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "markupsafe"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "3.0.3"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/markupsafe@3.0.3"
+,"confidence": "HIGHEST"                    }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "pyjwt:2.14.0",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:pyjwt\/2.14.0"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "pyjwt"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "pyjwt"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "2.14.0"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/pyjwt@2.14.0"
+,"confidence": "HIGHEST"                    }
+            ]                ,"vulnerabilityIds": [
+                {
+                    "id": "cpe:2.3:a:pyjwt_project:pyjwt:2.14.0:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Apyjwt_project%3Apyjwt%3A2.14.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "python-dotenv:1.2.3",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:python-dotenv\/1.2.3"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "python-dotenv"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "python-dotenv"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "1.2.3"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/python-dotenv@1.2.3"
+,"confidence": "HIGHEST"                    }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "sqlalchemy:2.0.52",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:sqlalchemy\/2.0.52"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "sqlalchemy"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "sqlalchemy"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "2.0.52"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/sqlalchemy@2.0.52"
+,"confidence": "HIGHEST"                    }
+            ]                ,"vulnerabilityIds": [
+                {
+                    "id": "cpe:2.3:a:sqlalchemy:sqlalchemy:2.0.52:*:*:*:*:*:*:*"
+,"confidence": "HIGHEST","url": "https:\/\/nvd.nist.gov\/vuln\/search#\/nvd\/home?sortOrder=3&sortDirection=2&cpeFilterMode=applicability&resultType=records&cpeName=cpe%3A2.3%3Aa%3Asqlalchemy%3Asqlalchemy%3A2.0.52%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A"                }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "typing-extensions:4.16.0",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:typing-extensions\/4.16.0"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "typing-extensions"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "typing-extensions"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "4.16.0"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/typing-extensions@4.16.0"
+,"confidence": "HIGHEST"                    }
+            ]
+        },{
+            "isVirtual": true,
+            "fileName": "werkzeug:3.1.9",
+            "filePath": "\/private\/tmp\/infosec-lab1-tools\/scan\/requirements.txt:werkzeug\/3.1.9"
+            ,"evidenceCollected": {
+                "vendorEvidence": [
+{
+                            "type": "vendor",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "vendor",
+                            "value": "werkzeug"
+                        }
+                ],
+                "productEvidence": [
+{
+                            "type": "product",
+                            "confidence": "HIGHEST",
+                            "source": "requirements.txt",
+                            "name": "product",
+                            "value": "werkzeug"
+                    }
+                ],
+                "versionEvidence": [
+                    {
+                        "type": "version",
+                        "confidence": "HIGHEST",
+                        "source": "requirements.txt",
+                        "name": "version",
+                        "value": "3.1.9"
+                    }
+                ]
+            }
+                ,"packages": [
+                    {
+                        "id": "pkg:pypi\/werkzeug@3.1.9"
+,"confidence": "HIGHEST"                    }
+            ]
+        }    ]
+}

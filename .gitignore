@@ -8,3 +8,5 @@ bandit-report.json
 pip-audit-report.json
 
 docs/theory.md
+
+*.gost-meta.json

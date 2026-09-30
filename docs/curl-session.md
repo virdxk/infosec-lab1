@@ -1,93 +1,208 @@
-# Manual verification with curl
+# Проверка API через curl
 
-Server started with `python wsgi.py` on http://127.0.0.1:5000, database seeded by `python seed.py`.
-JWT values are truncated below for readability.
+Выполнено: 2026-09-30T09:42:44.280976+00:00.
 
-### 1. Successful login
+Использованы отдельная временная SQLite-БД, данные seed.py и случайный JWT-секрет. Основная БД не изменялась. Все приведённые ответы получены реальными HTTP-запросами curl.
+
+Адрес при проверке: `http://127.0.0.1:65021`. В командах `$BASE_URL` обозначает адрес сервера, `$TOKEN` — токен первого запроса.
+
+Одинаковые ошибки входа не доказывают защиту от определения аккаунта по времени ответа.
+
+## 1. Успешный вход
+
+```bash
+curl -sS -X POST "$BASE_URL/auth/login" -H "Content-Type: application/json" --data '{"username": "alice", "password": "Al1ce-Str0ng-Pass!"}'
+```
 
 HTTP 200
 
 ```json
-{"access_token":"eyJhbGciOiJIUzI1NiIsInR5cCI6Ik...truncated...","expires_in":3600,"token_type":"Bearer"}
+{
+  "access_token": "<JWT скрыт; полный токен использован в следующих запросах>",
+  "expires_in": 3600,
+  "token_type": "Bearer"
+}
 ```
 
-### 2. Login with a wrong password
+## 2. Неверный пароль
+
+```bash
+curl -sS -X POST "$BASE_URL/auth/login" -H "Content-Type: application/json" --data '{"username": "alice", "password": "wrong"}'
+```
 
 HTTP 401
 
 ```json
-{"error":"invalid credentials"}
+{
+  "error": "invalid credentials"
+}
 ```
 
-### 3. Login as a user that does not exist, identical to case 2 so accounts cannot be enumerated
+## 3. Неизвестный пользователь
+
+```bash
+curl -sS -X POST "$BASE_URL/auth/login" -H "Content-Type: application/json" --data '{"username": "nobody", "password": "wrong"}'
+```
 
 HTTP 401
 
 ```json
-{"error":"invalid credentials"}
+{
+  "error": "invalid credentials"
+}
 ```
 
-### 4. SQL injection payload in the username field
+## 4. SQL-инъекция в логине
+
+```bash
+curl -sS -X POST "$BASE_URL/auth/login" -H "Content-Type: application/json" --data '{"username": "\' OR \'1\'=\'1\' --", "password": "wrong"}'
+```
 
 HTTP 401
 
 ```json
-{"error":"invalid credentials"}
+{
+  "error": "invalid credentials"
+}
 ```
 
-### 5. Login without a request body
+## 5. Отсутствуют обязательные поля
+
+```bash
+curl -sS -X POST "$BASE_URL/auth/login" -H "Content-Type: application/json" --data '{}'
+```
 
 HTTP 400
 
 ```json
-{"error":"username and password are required"}
+{
+  "error": "username and password are required"
+}
 ```
 
-### 6. GET /api/data without a token
+## 6. Чтение без JWT
+
+```bash
+curl -sS -X GET "$BASE_URL/api/data"
+```
 
 HTTP 401
 
 ```json
-{"error":"authorization header missing or malformed"}
+{
+  "error": "authorization header missing or malformed"
+}
 ```
 
-### 7. GET /api/data with a forged token
+## 7. Чтение с неверным JWT
+
+```bash
+curl -sS -X GET "$BASE_URL/api/data" -H "Authorization: Bearer $TOKEN"
+```
 
 HTTP 401
 
 ```json
-{"error":"invalid token"}
+{
+  "error": "invalid token"
+}
 ```
 
-### 8. GET /api/data with a valid token
+## 8. Чтение с действительным JWT
+
+```bash
+curl -sS -X GET "$BASE_URL/api/data" -H "Authorization: Bearer $TOKEN"
+```
 
 HTTP 200
 
 ```json
-{"count":2,"items":[{"author":"admin","body":"First post created by the seed script.","created_at":"2026-09-17T10:59:45.035358","id":1,"title":"Welcome"},{"author":"alice","body":"Access tokens are signed with HS256 and expire in one hour.","created_at":"2026-09-17T10:59:45.035972","id":2,"title":"Notes on JWT"}]}
+{
+  "count": 2,
+  "items": [
+    {
+      "author": "admin",
+      "body": "First post created by the seed script.",
+      "created_at": "2026-09-30T09:42:43.325484",
+      "id": 1,
+      "title": "Welcome"
+    },
+    {
+      "author": "alice",
+      "body": "Access tokens are signed with HS256 and expire in one hour.",
+      "created_at": "2026-09-30T09:42:43.325857",
+      "id": 2,
+      "title": "Notes on JWT"
+    }
+  ]
+}
 ```
 
-### 9. POST /api/posts with an XSS payload
+## 9. Создание поста с XSS-строкой
+
+```bash
+curl -sS -X POST "$BASE_URL/api/posts" -H "Content-Type: application/json" --data '{"title": "XSS probe", "body": "<script>alert(1)</script>"}' -H "Authorization: Bearer $TOKEN"
+```
 
 HTTP 201
 
 ```json
-{"author":"alice","body":"&lt;script&gt;alert(1)&lt;/script&gt;","created_at":"2026-09-17T11:00:28.184813+00:00","id":3,"title":"XSS probe"}
+{
+  "author": "alice",
+  "body": "&lt;script&gt;alert(1)&lt;/script&gt;",
+  "created_at": "2026-09-30T09:42:43.758417+00:00",
+  "id": 3,
+  "title": "XSS probe"
+}
 ```
 
-### 10. GET /api/data returns the stored payload escaped
+## 10. Повторное чтение экранированного поста
+
+```bash
+curl -sS -X GET "$BASE_URL/api/data" -H "Authorization: Bearer $TOKEN"
+```
 
 HTTP 200
 
 ```json
-{"count":3,"items":[{"author":"admin","body":"First post created by the seed script.","created_at":"2026-09-17T10:59:45.035358","id":1,"title":"Welcome"},{"author":"alice","body":"Access tokens are signed with HS256 and expire in one hour.","created_at":"2026-09-17T10:59:45.035972","id":2,"title":"Notes on JWT"},{"author":"alice","body":"&lt;script&gt;alert(1)&lt;/script&gt;","created_at":"2026-09-17T11:00:28.184813","id":3,"title":"XSS probe"}]}
+{
+  "count": 3,
+  "items": [
+    {
+      "author": "admin",
+      "body": "First post created by the seed script.",
+      "created_at": "2026-09-30T09:42:43.325484",
+      "id": 1,
+      "title": "Welcome"
+    },
+    {
+      "author": "alice",
+      "body": "Access tokens are signed with HS256 and expire in one hour.",
+      "created_at": "2026-09-30T09:42:43.325857",
+      "id": 2,
+      "title": "Notes on JWT"
+    },
+    {
+      "author": "alice",
+      "body": "&lt;script&gt;alert(1)&lt;/script&gt;",
+      "created_at": "2026-09-30T09:42:43.758417",
+      "id": 3,
+      "title": "XSS probe"
+    }
+  ]
+}
 ```
 
-### 11. POST /api/posts without a token
+## 11. Создание поста без JWT
+
+```bash
+curl -sS -X POST "$BASE_URL/api/posts" -H "Content-Type: application/json" --data '{"title": "Denied", "body": "Denied"}'
+```
 
 HTTP 401
 
 ```json
-{"error":"authorization header missing or malformed"}
+{
+  "error": "authorization header missing or malformed"
+}
 ```
-
