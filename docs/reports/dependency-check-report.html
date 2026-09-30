@@ -683,17 +683,18 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                 Scan Information (<a href="#" title="Click to toggle display" id="scanInformationToggle">show all</a>):<br/>
                     <ul class="indent">
                         <li><i>dependency-check version</i>: 13.0.0</li>
-                        <li><i>Report Generated On</i>: Wed, 30 Sep 2026 12:46:35 +0300</li>
-                        <li><i>Dependencies Scanned</i>:&nbsp;12 (12 unique)</li>
+                        <li><i>Report Generated On</i>: Wed, 30 Sep 2026 10:51:54 GMT</li>
+                        <li><i>Dependencies Scanned</i>:&nbsp;13 (13 unique)</li>
                         <li><i>Vulnerable Dependencies</i>:&nbsp;<span id="vulnerableCount">0</span></li>
                         <li><i>Vulnerabilities Found</i>:&nbsp;0</li>
-                        <li><i>Vulnerabilities Suppressed</i>:&nbsp;0
+                        <li><i>Vulnerabilities Suppressed</i>:&nbsp;1
+                                (<a id="suppressed-vulnerabilities-link" href="#header-suppressed">show</a>)
                         </li>
                         <li class="scaninfo">...</li>
-                        <li class="scaninfo hidden"><i>NVD API Last Checked</i>: 2026-09-30T09:41:08Z</li>
-                        <li class="scaninfo hidden"><i>NVD API Last Modified</i>: 2026-09-30T01:00:06-04</li>
-                        <li class="scaninfo hidden"><i>NVD Cache Last Checked</i>: 2026-09-30T09:41:08Z</li>
-                        <li class="scaninfo hidden"><i>NVD Cache Last Modified</i>: 2026-09-30T01:00:06-04</li>
+                        <li class="scaninfo hidden"><i>NVD API Last Checked</i>: 2026-09-30T10:49:36Z</li>
+                        <li class="scaninfo hidden"><i>NVD API Last Modified</i>: 2026-09-30T06:00:05-04</li>
+                        <li class="scaninfo hidden"><i>NVD Cache Last Checked</i>: 2026-09-30T10:49:36Z</li>
+                        <li class="scaninfo hidden"><i>NVD Cache Last Modified</i>: 2026-09-30T06:00:05-04</li>
                     </ul><br/>
 <h2>Summary</h2>
                 <p><span id="tablecaption-plain">Summary of Vulnerable Dependencies </span><a href="#" title="Click to toggle display" id="vulnerabilityDisplayToggle">(click to show all)</a></p>
@@ -708,7 +709,83 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                         <th class="sortable" data-sort="int"    title="The count of evidence collected to identify the CPE">Evidence&nbsp;Count</th>
                     </tr></thead>
                     <tr class="notvulnerable">
-                        <td data-sort-value="BCRYPT:5.0.0"><a href="#l1_7344fcc3001e455f830cbeef23de43293e460249">bcrypt:5.0.0</a></td>
+                        <td data-sort-value="FLASK:3.1.3"><a href="#l1_d78fbfe06f6c22fcdad9b257578d76e8c86476ba">Flask:3.1.3</a></td>
+                        <td data-sort-value="">
+                        </td>
+                        <td data-sort-value="pkg:pypi/flask@3.1.3">
+                                pkg:pypi/flask@3.1.3
+</td>
+                        <td data-sort-value="-10">&nbsp;</td>
+                        <td>0</td>
+                        <td data-sort-value="0"></td>
+                        <td>3</td>
+                    </tr>
+                    <tr class="notvulnerable">
+                        <td data-sort-value="JINJA2:3.1.6"><a href="#l2_a0854acf95d45c8c6637826773b8e3687f621efc">Jinja2:3.1.6</a></td>
+                        <td data-sort-value="">
+                        </td>
+                        <td data-sort-value="pkg:pypi/jinja2@3.1.6">
+                                pkg:pypi/jinja2@3.1.6
+</td>
+                        <td data-sort-value="-10">&nbsp;</td>
+                        <td>0</td>
+                        <td data-sort-value="0"></td>
+                        <td>3</td>
+                    </tr>
+                    <tr class="notvulnerable">
+                        <td data-sort-value="MARKUPSAFE:3.0.3"><a href="#l3_153063e39a0c656bd4bbc06206357a6a743ff2da">MarkupSafe:3.0.3</a></td>
+                        <td data-sort-value="">
+                        </td>
+                        <td data-sort-value="pkg:pypi/markupsafe@3.0.3">
+                                pkg:pypi/markupsafe@3.0.3
+</td>
+                        <td data-sort-value="-10">&nbsp;</td>
+                        <td>0</td>
+                        <td data-sort-value="0"></td>
+                        <td>3</td>
+                    </tr>
+                    <tr class="notvulnerable">
+                        <td data-sort-value="PYJWT:2.14.0"><a href="#l4_83632a94bf828c16769d7fffececf6cb8a42ef49">PyJWT:2.14.0</a></td>
+                        <td data-sort-value="cpe:2.3:a:jwt_project:jwt:2.14.0:*:*:*:*:*:*:*cpe:2.3:a:pyjwt_project:pyjwt:2.14.0:*:*:*:*:*:*:*">
+                                cpe:2.3:a:jwt_project:jwt:2.14.0:*:*:*:*:*:*:*
+                                <br/>
+                                cpe:2.3:a:pyjwt_project:pyjwt:2.14.0:*:*:*:*:*:*:*
+                        </td>
+                        <td data-sort-value="pkg:pypi/pyjwt@2.14.0">
+                                pkg:pypi/pyjwt@2.14.0
+</td>
+                        <td data-sort-value="-10">&nbsp;</td>
+                        <td>0</td>
+                        <td data-sort-value="3">Low</td>
+                        <td>3</td>
+                    </tr>
+                    <tr class="notvulnerable">
+                        <td data-sort-value="SQLALCHEMY:2.0.52"><a href="#l5_aa83bb6a47de0c9deb1b42ae124a89dee965abab">SQLAlchemy:2.0.52</a></td>
+                        <td data-sort-value="cpe:2.3:a:sqlalchemy:sqlalchemy:2.0.52:*:*:*:*:*:*:*">
+                                cpe:2.3:a:sqlalchemy:sqlalchemy:2.0.52:*:*:*:*:*:*:*
+                        </td>
+                        <td data-sort-value="pkg:pypi/sqlalchemy@2.0.52">
+                                pkg:pypi/sqlalchemy@2.0.52
+</td>
+                        <td data-sort-value="-10">&nbsp;</td>
+                        <td>0</td>
+                        <td data-sort-value="3">Low</td>
+                        <td>3</td>
+                    </tr>
+                    <tr class="notvulnerable">
+                        <td data-sort-value="WERKZEUG:3.1.9"><a href="#l6_9dc2e8129bb8a08a405f8d5e92b4c21e43044999">Werkzeug:3.1.9</a></td>
+                        <td data-sort-value="">
+                        </td>
+                        <td data-sort-value="pkg:pypi/werkzeug@3.1.9">
+                                pkg:pypi/werkzeug@3.1.9
+</td>
+                        <td data-sort-value="-10">&nbsp;</td>
+                        <td>0</td>
+                        <td data-sort-value="0"></td>
+                        <td>3</td>
+                    </tr>
+                    <tr class="notvulnerable">
+                        <td data-sort-value="BCRYPT:5.0.0"><a href="#l7_28d87b36199023a5c867e63567bf8744e0697a8a">bcrypt:5.0.0</a></td>
                         <td data-sort-value="">
                         </td>
                         <td data-sort-value="pkg:pypi/bcrypt@5.0.0">
@@ -720,7 +797,7 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                         <td>3</td>
                     </tr>
                     <tr class="notvulnerable">
-                        <td data-sort-value="BLINKER:1.9.0"><a href="#l2_da0c2f18e40bb797153c1fce59afc794637ddf6a">blinker:1.9.0</a></td>
+                        <td data-sort-value="BLINKER:1.9.0"><a href="#l8_4b101367e2f10c092b493bd8ee62ef1ab02c49be">blinker:1.9.0</a></td>
                         <td data-sort-value="">
                         </td>
                         <td data-sort-value="pkg:pypi/blinker@1.9.0">
@@ -732,7 +809,7 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                         <td>3</td>
                     </tr>
                     <tr class="notvulnerable">
-                        <td data-sort-value="CLICK:8.5.0"><a href="#l3_dd97605ba760223197635087b0d66b6012f2f048">click:8.5.0</a></td>
+                        <td data-sort-value="CLICK:8.5.0"><a href="#l9_935eec000185b85950b4e171c21468da72b12eeb">click:8.5.0</a></td>
                         <td data-sort-value="cpe:2.3:a:click_project:click:8.5.0:*:*:*:*:*:*:*">
                                 <a href="https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aclick_project%3Aclick%3A8.5.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A" target="_blank">cpe:2.3:a:click_project:click:8.5.0:*:*:*:*:*:*:*</a>
                         </td>
@@ -745,11 +822,11 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                         <td>3</td>
                     </tr>
                     <tr class="notvulnerable">
-                        <td data-sort-value="FLASK:3.1.3"><a href="#l4_177679fbe34d01efd184d486c8734119a5612ae3">flask:3.1.3</a></td>
+                        <td data-sort-value="GREENLET:3.5.6"><a href="#l10_4362bf10b929bb45d02e85a60f54557a0657dfa3">greenlet:3.5.6</a></td>
                         <td data-sort-value="">
                         </td>
-                        <td data-sort-value="pkg:pypi/flask@3.1.3">
-                                pkg:pypi/flask@3.1.3
+                        <td data-sort-value="pkg:pypi/greenlet@3.5.6">
+                                pkg:pypi/greenlet@3.5.6
 </td>
                         <td data-sort-value="-10">&nbsp;</td>
                         <td>0</td>
@@ -757,7 +834,7 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                         <td>3</td>
                     </tr>
                     <tr class="notvulnerable">
-                        <td data-sort-value="ITSDANGEROUS:2.2.0"><a href="#l5_36101d1ee3e29a0b2debcd89ea5d9d3cc1655930">itsdangerous:2.2.0</a></td>
+                        <td data-sort-value="ITSDANGEROUS:2.2.0"><a href="#l11_7515bdb6d93ebe35bbaca69f6dc373fbaab897f6">itsdangerous:2.2.0</a></td>
                         <td data-sort-value="">
                         </td>
                         <td data-sort-value="pkg:pypi/itsdangerous@2.2.0">
@@ -769,44 +846,7 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                         <td>3</td>
                     </tr>
                     <tr class="notvulnerable">
-                        <td data-sort-value="JINJA2:3.1.6"><a href="#l6_04162428a0b24be932e60eb6d34b1c718e0ab5da">jinja2:3.1.6</a></td>
-                        <td data-sort-value="">
-                        </td>
-                        <td data-sort-value="pkg:pypi/jinja2@3.1.6">
-                                pkg:pypi/jinja2@3.1.6
-</td>
-                        <td data-sort-value="-10">&nbsp;</td>
-                        <td>0</td>
-                        <td data-sort-value="0"></td>
-                        <td>3</td>
-                    </tr>
-                    <tr class="notvulnerable">
-                        <td data-sort-value="MARKUPSAFE:3.0.3"><a href="#l7_f3cc2dc1601caaccb586a12314e30c7f4559f2b6">markupsafe:3.0.3</a></td>
-                        <td data-sort-value="">
-                        </td>
-                        <td data-sort-value="pkg:pypi/markupsafe@3.0.3">
-                                pkg:pypi/markupsafe@3.0.3
-</td>
-                        <td data-sort-value="-10">&nbsp;</td>
-                        <td>0</td>
-                        <td data-sort-value="0"></td>
-                        <td>3</td>
-                    </tr>
-                    <tr class="notvulnerable">
-                        <td data-sort-value="PYJWT:2.14.0"><a href="#l8_a2e8eecb6852c67184104aaaf61452057d677a02">pyjwt:2.14.0</a></td>
-                        <td data-sort-value="cpe:2.3:a:pyjwt_project:pyjwt:2.14.0:*:*:*:*:*:*:*">
-                                <a href="https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Apyjwt_project%3Apyjwt%3A2.14.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A" target="_blank">cpe:2.3:a:pyjwt_project:pyjwt:2.14.0:*:*:*:*:*:*:*</a>
-                        </td>
-                        <td data-sort-value="pkg:pypi/pyjwt@2.14.0">
-                                pkg:pypi/pyjwt@2.14.0
-</td>
-                        <td data-sort-value="-10">&nbsp;</td>
-                        <td>0</td>
-                        <td data-sort-value="0">Highest</td>
-                        <td>3</td>
-                    </tr>
-                    <tr class="notvulnerable">
-                        <td data-sort-value="PYTHON-DOTENV:1.2.3"><a href="#l9_015c49907875e5da0eaa08e9b05c1b11a02ace41">python-dotenv:1.2.3</a></td>
+                        <td data-sort-value="PYTHON-DOTENV:1.2.3"><a href="#l12_c3966d9d8c2c5fa010a0b31b7feaae6fbebe2658">python-dotenv:1.2.3</a></td>
                         <td data-sort-value="">
                         </td>
                         <td data-sort-value="pkg:pypi/python-dotenv@1.2.3">
@@ -818,20 +858,7 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                         <td>3</td>
                     </tr>
                     <tr class="notvulnerable">
-                        <td data-sort-value="SQLALCHEMY:2.0.52"><a href="#l10_f9140aeab8db519cad1831ebf5b75712dc64ecda">sqlalchemy:2.0.52</a></td>
-                        <td data-sort-value="cpe:2.3:a:sqlalchemy:sqlalchemy:2.0.52:*:*:*:*:*:*:*">
-                                <a href="https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Asqlalchemy%3Asqlalchemy%3A2.0.52%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A" target="_blank">cpe:2.3:a:sqlalchemy:sqlalchemy:2.0.52:*:*:*:*:*:*:*</a>
-                        </td>
-                        <td data-sort-value="pkg:pypi/sqlalchemy@2.0.52">
-                                pkg:pypi/sqlalchemy@2.0.52
-</td>
-                        <td data-sort-value="-10">&nbsp;</td>
-                        <td>0</td>
-                        <td data-sort-value="0">Highest</td>
-                        <td>3</td>
-                    </tr>
-                    <tr class="notvulnerable">
-                        <td data-sort-value="TYPING-EXTENSIONS:4.16.0"><a href="#l11_cb8d9a28cbef645ec2f779deff77d21935b8272a">typing-extensions:4.16.0</a></td>
+                        <td data-sort-value="TYPING_EXTENSIONS:4.16.0"><a href="#l13_57d2d3d88a6510cc2b69a535bdbee68cc4d20598">typing_extensions:4.16.0</a></td>
                         <td data-sort-value="">
                         </td>
                         <td data-sort-value="pkg:pypi/typing-extensions@4.16.0">
@@ -842,109 +869,24 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                         <td data-sort-value="0"></td>
                         <td>3</td>
                     </tr>
-                    <tr class="notvulnerable">
-                        <td data-sort-value="WERKZEUG:3.1.9"><a href="#l12_ffb3621f157e9eee6eeb363cf10245a6643ea868">werkzeug:3.1.9</a></td>
-                        <td data-sort-value="">
-                        </td>
-                        <td data-sort-value="pkg:pypi/werkzeug@3.1.9">
-                                pkg:pypi/werkzeug@3.1.9
-</td>
-                        <td data-sort-value="-10">&nbsp;</td>
-                        <td>0</td>
-                        <td data-sort-value="0"></td>
-                        <td>3</td>
-                    </tr>
                 </table>
                 <h2 id="header-dependencies">Dependencies (vulnerable)</h2>
-                     <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l1_7344fcc3001e455f830cbeef23de43293e460249"></a>bcrypt:5.0.0</h3>
+                     <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l1_d78fbfe06f6c22fcdad9b257578d76e8c86476ba"></a>Flask:3.1.3</h3>
                     <div class="subsectioncontent notvulnerable">
                         <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:bcrypt/5.0.0<br/>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:Flask/3.1.3<br/>
                         </p>
                         <h4 id="header1" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
                         <div id="content1" class="subsectioncontent standardsubsection hidden">
                             <table class="lined fullwidth" border="0">
                                 <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>bcrypt</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>bcrypt</td><td>Highest</td></tr>
-                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>5.0.0</td><td>Highest</td></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>Flask</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>Flask</td><td>Highest</td></tr>
+                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>3.1.3</td><td>Highest</td></tr>
                             </table>
                         </div>
                         <h4 id="header2" class="subsectionheader white">Identifiers</h4>
                         <div id="content2" class="subsectioncontent standardsubsection">
-                            <ul>
-                                    <li>pkg:pypi/bcrypt@5.0.0
-                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
-                                </li>
-                            </ul>
-                        </div>
-                </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l2_da0c2f18e40bb797153c1fce59afc794637ddf6a"></a>blinker:1.9.0</h3>
-                    <div class="subsectioncontent notvulnerable">
-                        <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:blinker/1.9.0<br/>
-                        </p>
-                        <h4 id="header3" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content3" class="subsectioncontent standardsubsection hidden">
-                            <table class="lined fullwidth" border="0">
-                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>blinker</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>blinker</td><td>Highest</td></tr>
-                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>1.9.0</td><td>Highest</td></tr>
-                            </table>
-                        </div>
-                        <h4 id="header4" class="subsectionheader white">Identifiers</h4>
-                        <div id="content4" class="subsectioncontent standardsubsection">
-                            <ul>
-                                    <li>pkg:pypi/blinker@1.9.0
-                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
-                                </li>
-                            </ul>
-                        </div>
-                </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l3_dd97605ba760223197635087b0d66b6012f2f048"></a>click:8.5.0</h3>
-                    <div class="subsectioncontent notvulnerable">
-                        <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:click/8.5.0<br/>
-                        </p>
-                        <h4 id="header5" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content5" class="subsectioncontent standardsubsection hidden">
-                            <table class="lined fullwidth" border="0">
-                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>click</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>click</td><td>Highest</td></tr>
-                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>8.5.0</td><td>Highest</td></tr>
-                            </table>
-                        </div>
-                        <h4 id="header6" class="subsectionheader white">Identifiers</h4>
-                        <div id="content6" class="subsectioncontent standardsubsection">
-                            <ul>
-                                    <li>pkg:pypi/click@8.5.0
-                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
-                                </li>
-                                <li><a href="https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aclick_project%3Aclick%3A8.5.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A" target="_blank">cpe:2.3:a:click_project:click:8.5.0:*:*:*:*:*:*:*</a>
-                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
-                                &nbsp;&nbsp;<button class="copybutton" title="Generate Suppression XML for the identified vulnerability identifier" data-display-name="click:8.5.0" data-sha1="dd97605ba760223197635087b0d66b6012f2f048" data-pkgurl="pkg:pypi/click@8.5.0" data-type-to-suppress="cpe" data-id-to-suppress="cpe:/a:click_project:click">suppress</button>
-                            </li>
-                            </ul>
-                        </div>
-                </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l4_177679fbe34d01efd184d486c8734119a5612ae3"></a>flask:3.1.3</h3>
-                    <div class="subsectioncontent notvulnerable">
-                        <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:flask/3.1.3<br/>
-                        </p>
-                        <h4 id="header7" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content7" class="subsectioncontent standardsubsection hidden">
-                            <table class="lined fullwidth" border="0">
-                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>flask</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>flask</td><td>Highest</td></tr>
-                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>3.1.3</td><td>Highest</td></tr>
-                            </table>
-                        </div>
-                        <h4 id="header8" class="subsectionheader white">Identifiers</h4>
-                        <div id="content8" class="subsectioncontent standardsubsection">
                             <ul>
                                     <li>pkg:pypi/flask@3.1.3
                                     &nbsp;&nbsp;(<i>Confidence</i>:Highest)
@@ -952,45 +894,22 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                             </ul>
                         </div>
                 </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l5_36101d1ee3e29a0b2debcd89ea5d9d3cc1655930"></a>itsdangerous:2.2.0</h3>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l2_a0854acf95d45c8c6637826773b8e3687f621efc"></a>Jinja2:3.1.6</h3>
                     <div class="subsectioncontent notvulnerable">
                         <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:itsdangerous/2.2.0<br/>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:Jinja2/3.1.6<br/>
                         </p>
-                        <h4 id="header9" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content9" class="subsectioncontent standardsubsection hidden">
+                        <h4 id="header3" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content3" class="subsectioncontent standardsubsection hidden">
                             <table class="lined fullwidth" border="0">
                                 <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>itsdangerous</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>itsdangerous</td><td>Highest</td></tr>
-                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>2.2.0</td><td>Highest</td></tr>
-                            </table>
-                        </div>
-                        <h4 id="header10" class="subsectionheader white">Identifiers</h4>
-                        <div id="content10" class="subsectioncontent standardsubsection">
-                            <ul>
-                                    <li>pkg:pypi/itsdangerous@2.2.0
-                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
-                                </li>
-                            </ul>
-                        </div>
-                </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l6_04162428a0b24be932e60eb6d34b1c718e0ab5da"></a>jinja2:3.1.6</h3>
-                    <div class="subsectioncontent notvulnerable">
-                        <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:jinja2/3.1.6<br/>
-                        </p>
-                        <h4 id="header11" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content11" class="subsectioncontent standardsubsection hidden">
-                            <table class="lined fullwidth" border="0">
-                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>jinja2</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>jinja2</td><td>Highest</td></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>Jinja2</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>Jinja2</td><td>Highest</td></tr>
                                     <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>3.1.6</td><td>Highest</td></tr>
                             </table>
                         </div>
-                        <h4 id="header12" class="subsectionheader white">Identifiers</h4>
-                        <div id="content12" class="subsectioncontent standardsubsection">
+                        <h4 id="header4" class="subsectionheader white">Identifiers</h4>
+                        <div id="content4" class="subsectioncontent standardsubsection">
                             <ul>
                                     <li>pkg:pypi/jinja2@3.1.6
                                     &nbsp;&nbsp;(<i>Confidence</i>:Highest)
@@ -998,22 +917,22 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                             </ul>
                         </div>
                 </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l7_f3cc2dc1601caaccb586a12314e30c7f4559f2b6"></a>markupsafe:3.0.3</h3>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l3_153063e39a0c656bd4bbc06206357a6a743ff2da"></a>MarkupSafe:3.0.3</h3>
                     <div class="subsectioncontent notvulnerable">
                         <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:markupsafe/3.0.3<br/>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:MarkupSafe/3.0.3<br/>
                         </p>
-                        <h4 id="header13" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content13" class="subsectioncontent standardsubsection hidden">
+                        <h4 id="header5" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content5" class="subsectioncontent standardsubsection hidden">
                             <table class="lined fullwidth" border="0">
                                 <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>markupsafe</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>markupsafe</td><td>Highest</td></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>MarkupSafe</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>MarkupSafe</td><td>Highest</td></tr>
                                     <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>3.0.3</td><td>Highest</td></tr>
                             </table>
                         </div>
-                        <h4 id="header14" class="subsectionheader white">Identifiers</h4>
-                        <div id="content14" class="subsectioncontent standardsubsection">
+                        <h4 id="header6" class="subsectionheader white">Identifiers</h4>
+                        <div id="content6" class="subsectioncontent standardsubsection">
                             <ul>
                                     <li>pkg:pypi/markupsafe@3.0.3
                                     &nbsp;&nbsp;(<i>Confidence</i>:Highest)
@@ -1021,122 +940,80 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                             </ul>
                         </div>
                 </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l8_a2e8eecb6852c67184104aaaf61452057d677a02"></a>pyjwt:2.14.0</h3>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l4_83632a94bf828c16769d7fffececf6cb8a42ef49"></a>PyJWT:2.14.0</h3>
                     <div class="subsectioncontent notvulnerable">
                         <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:pyjwt/2.14.0<br/>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:PyJWT/2.14.0<br/>
                         </p>
-                        <h4 id="header15" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content15" class="subsectioncontent standardsubsection hidden">
+                        <h4 id="header7" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content7" class="subsectioncontent standardsubsection hidden">
                             <table class="lined fullwidth" border="0">
                                 <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>pyjwt</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>pyjwt</td><td>Highest</td></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>PyJWT</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>PyJWT</td><td>Highest</td></tr>
                                     <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>2.14.0</td><td>Highest</td></tr>
                             </table>
                         </div>
-                        <h4 id="header16" class="subsectionheader white">Identifiers</h4>
-                        <div id="content16" class="subsectioncontent standardsubsection">
+                        <h4 id="header8" class="subsectionheader white">Identifiers</h4>
+                        <div id="content8" class="subsectioncontent standardsubsection">
                             <ul>
                                     <li>pkg:pypi/pyjwt@2.14.0
                                     &nbsp;&nbsp;(<i>Confidence</i>:Highest)
                                 </li>
-                                <li><a href="https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Apyjwt_project%3Apyjwt%3A2.14.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A" target="_blank">cpe:2.3:a:pyjwt_project:pyjwt:2.14.0:*:*:*:*:*:*:*</a>
-                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
-                                &nbsp;&nbsp;<button class="copybutton" title="Generate Suppression XML for the identified vulnerability identifier" data-display-name="pyjwt:2.14.0" data-sha1="a2e8eecb6852c67184104aaaf61452057d677a02" data-pkgurl="pkg:pypi/pyjwt@2.14.0" data-type-to-suppress="cpe" data-id-to-suppress="cpe:/a:pyjwt_project:pyjwt">suppress</button>
+                                <li>cpe:2.3:a:jwt_project:jwt:2.14.0:*:*:*:*:*:*:*
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Low)
+                                &nbsp;&nbsp;<button class="copybutton" title="Generate Suppression XML for the identified vulnerability identifier" data-display-name="PyJWT:2.14.0" data-sha1="83632a94bf828c16769d7fffececf6cb8a42ef49" data-pkgurl="pkg:pypi/pyjwt@2.14.0" data-type-to-suppress="cpe" data-id-to-suppress="cpe:/a:jwt_project:jwt">suppress</button>
+                            </li>
+                                <li>cpe:2.3:a:pyjwt_project:pyjwt:2.14.0:*:*:*:*:*:*:*
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Low)
+                                &nbsp;&nbsp;<button class="copybutton" title="Generate Suppression XML for the identified vulnerability identifier" data-display-name="PyJWT:2.14.0" data-sha1="83632a94bf828c16769d7fffececf6cb8a42ef49" data-pkgurl="pkg:pypi/pyjwt@2.14.0" data-type-to-suppress="cpe" data-id-to-suppress="cpe:/a:pyjwt_project:pyjwt">suppress</button>
                             </li>
                             </ul>
                         </div>
                 </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l9_015c49907875e5da0eaa08e9b05c1b11a02ace41"></a>python-dotenv:1.2.3</h3>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l5_aa83bb6a47de0c9deb1b42ae124a89dee965abab"></a>SQLAlchemy:2.0.52</h3>
                     <div class="subsectioncontent notvulnerable">
                         <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:python-dotenv/1.2.3<br/>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:SQLAlchemy/2.0.52<br/>
                         </p>
-                        <h4 id="header17" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content17" class="subsectioncontent standardsubsection hidden">
+                        <h4 id="header9" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content9" class="subsectioncontent standardsubsection hidden">
                             <table class="lined fullwidth" border="0">
                                 <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>python-dotenv</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>python-dotenv</td><td>Highest</td></tr>
-                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>1.2.3</td><td>Highest</td></tr>
-                            </table>
-                        </div>
-                        <h4 id="header18" class="subsectionheader white">Identifiers</h4>
-                        <div id="content18" class="subsectioncontent standardsubsection">
-                            <ul>
-                                    <li>pkg:pypi/python-dotenv@1.2.3
-                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
-                                </li>
-                            </ul>
-                        </div>
-                </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l10_f9140aeab8db519cad1831ebf5b75712dc64ecda"></a>sqlalchemy:2.0.52</h3>
-                    <div class="subsectioncontent notvulnerable">
-                        <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:sqlalchemy/2.0.52<br/>
-                        </p>
-                        <h4 id="header19" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content19" class="subsectioncontent standardsubsection hidden">
-                            <table class="lined fullwidth" border="0">
-                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>sqlalchemy</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>sqlalchemy</td><td>Highest</td></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>SQLAlchemy</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>SQLAlchemy</td><td>Highest</td></tr>
                                     <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>2.0.52</td><td>Highest</td></tr>
                             </table>
                         </div>
-                        <h4 id="header20" class="subsectionheader white">Identifiers</h4>
-                        <div id="content20" class="subsectioncontent standardsubsection">
+                        <h4 id="header10" class="subsectionheader white">Identifiers</h4>
+                        <div id="content10" class="subsectioncontent standardsubsection">
                             <ul>
                                     <li>pkg:pypi/sqlalchemy@2.0.52
                                     &nbsp;&nbsp;(<i>Confidence</i>:Highest)
                                 </li>
-                                <li><a href="https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Asqlalchemy%3Asqlalchemy%3A2.0.52%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A" target="_blank">cpe:2.3:a:sqlalchemy:sqlalchemy:2.0.52:*:*:*:*:*:*:*</a>
-                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
-                                &nbsp;&nbsp;<button class="copybutton" title="Generate Suppression XML for the identified vulnerability identifier" data-display-name="sqlalchemy:2.0.52" data-sha1="f9140aeab8db519cad1831ebf5b75712dc64ecda" data-pkgurl="pkg:pypi/sqlalchemy@2.0.52" data-type-to-suppress="cpe" data-id-to-suppress="cpe:/a:sqlalchemy:sqlalchemy">suppress</button>
+                                <li>cpe:2.3:a:sqlalchemy:sqlalchemy:2.0.52:*:*:*:*:*:*:*
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Low)
+                                &nbsp;&nbsp;<button class="copybutton" title="Generate Suppression XML for the identified vulnerability identifier" data-display-name="SQLAlchemy:2.0.52" data-sha1="aa83bb6a47de0c9deb1b42ae124a89dee965abab" data-pkgurl="pkg:pypi/sqlalchemy@2.0.52" data-type-to-suppress="cpe" data-id-to-suppress="cpe:/a:sqlalchemy:sqlalchemy">suppress</button>
                             </li>
                             </ul>
                         </div>
                 </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l11_cb8d9a28cbef645ec2f779deff77d21935b8272a"></a>typing-extensions:4.16.0</h3>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l6_9dc2e8129bb8a08a405f8d5e92b4c21e43044999"></a>Werkzeug:3.1.9</h3>
                     <div class="subsectioncontent notvulnerable">
                         <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:typing-extensions/4.16.0<br/>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:Werkzeug/3.1.9<br/>
                         </p>
-                        <h4 id="header21" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content21" class="subsectioncontent standardsubsection hidden">
+                        <h4 id="header11" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content11" class="subsectioncontent standardsubsection hidden">
                             <table class="lined fullwidth" border="0">
                                 <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>typing-extensions</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>typing-extensions</td><td>Highest</td></tr>
-                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>4.16.0</td><td>Highest</td></tr>
-                            </table>
-                        </div>
-                        <h4 id="header22" class="subsectionheader white">Identifiers</h4>
-                        <div id="content22" class="subsectioncontent standardsubsection">
-                            <ul>
-                                    <li>pkg:pypi/typing-extensions@4.16.0
-                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
-                                </li>
-                            </ul>
-                        </div>
-                </div>
-                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l12_ffb3621f157e9eee6eeb363cf10245a6643ea868"></a>werkzeug:3.1.9</h3>
-                    <div class="subsectioncontent notvulnerable">
-                        <p>
-                            <b>File&nbsp;Path:</b>&nbsp;/private/tmp/infosec-lab1-tools/scan/requirements.txt:werkzeug/3.1.9<br/>
-                        </p>
-                        <h4 id="header23" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
-                        <div id="content23" class="subsectioncontent standardsubsection hidden">
-                            <table class="lined fullwidth" border="0">
-                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
-                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>werkzeug</td><td>Highest</td></tr>
-                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>werkzeug</td><td>Highest</td></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>Werkzeug</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>Werkzeug</td><td>Highest</td></tr>
                                     <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>3.1.9</td><td>Highest</td></tr>
                             </table>
                         </div>
-                        <h4 id="header24" class="subsectionheader white">Identifiers</h4>
-                        <div id="content24" class="subsectioncontent standardsubsection">
+                        <h4 id="header12" class="subsectionheader white">Identifiers</h4>
+                        <div id="content12" class="subsectioncontent standardsubsection">
                             <ul>
                                     <li>pkg:pypi/werkzeug@3.1.9
                                     &nbsp;&nbsp;(<i>Confidence</i>:Highest)
@@ -1144,9 +1021,220 @@ Getting Help: <a href="https://github.com/dependency-check/DependencyCheck/issue
                             </ul>
                         </div>
                 </div>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l7_28d87b36199023a5c867e63567bf8744e0697a8a"></a>bcrypt:5.0.0</h3>
+                    <div class="subsectioncontent notvulnerable">
+                        <p>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:bcrypt/5.0.0<br/>
+                        </p>
+                        <h4 id="header13" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content13" class="subsectioncontent standardsubsection hidden">
+                            <table class="lined fullwidth" border="0">
+                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>bcrypt</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>bcrypt</td><td>Highest</td></tr>
+                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>5.0.0</td><td>Highest</td></tr>
+                            </table>
+                        </div>
+                        <h4 id="header14" class="subsectionheader white">Identifiers</h4>
+                        <div id="content14" class="subsectioncontent standardsubsection">
+                            <ul>
+                                    <li>pkg:pypi/bcrypt@5.0.0
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l8_4b101367e2f10c092b493bd8ee62ef1ab02c49be"></a>blinker:1.9.0</h3>
+                    <div class="subsectioncontent notvulnerable">
+                        <p>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:blinker/1.9.0<br/>
+                        </p>
+                        <h4 id="header15" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content15" class="subsectioncontent standardsubsection hidden">
+                            <table class="lined fullwidth" border="0">
+                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>blinker</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>blinker</td><td>Highest</td></tr>
+                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>1.9.0</td><td>Highest</td></tr>
+                            </table>
+                        </div>
+                        <h4 id="header16" class="subsectionheader white">Identifiers</h4>
+                        <div id="content16" class="subsectioncontent standardsubsection">
+                            <ul>
+                                    <li>pkg:pypi/blinker@1.9.0
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l9_935eec000185b85950b4e171c21468da72b12eeb"></a>click:8.5.0</h3>
+                    <div class="subsectioncontent notvulnerable">
+                        <p>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:click/8.5.0<br/>
+                        </p>
+                        <h4 id="header17" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content17" class="subsectioncontent standardsubsection hidden">
+                            <table class="lined fullwidth" border="0">
+                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>click</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>click</td><td>Highest</td></tr>
+                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>8.5.0</td><td>Highest</td></tr>
+                            </table>
+                        </div>
+                        <h4 id="header18" class="subsectionheader white">Identifiers</h4>
+                        <div id="content18" class="subsectioncontent standardsubsection">
+                            <ul>
+                                    <li>pkg:pypi/click@8.5.0
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
+                                </li>
+                                <li><a href="https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Aclick_project%3Aclick%3A8.5.0%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A" target="_blank">cpe:2.3:a:click_project:click:8.5.0:*:*:*:*:*:*:*</a>
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
+                                &nbsp;&nbsp;<button class="copybutton" title="Generate Suppression XML for the identified vulnerability identifier" data-display-name="click:8.5.0" data-sha1="935eec000185b85950b4e171c21468da72b12eeb" data-pkgurl="pkg:pypi/click@8.5.0" data-type-to-suppress="cpe" data-id-to-suppress="cpe:/a:click_project:click">suppress</button>
+                            </li>
+                            </ul>
+                        </div>
+                </div>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l10_4362bf10b929bb45d02e85a60f54557a0657dfa3"></a>greenlet:3.5.6</h3>
+                    <div class="subsectioncontent notvulnerable">
+                        <p>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:greenlet/3.5.6<br/>
+                        </p>
+                        <h4 id="header19" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content19" class="subsectioncontent standardsubsection hidden">
+                            <table class="lined fullwidth" border="0">
+                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>greenlet</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>greenlet</td><td>Highest</td></tr>
+                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>3.5.6</td><td>Highest</td></tr>
+                            </table>
+                        </div>
+                        <h4 id="header20" class="subsectionheader white">Identifiers</h4>
+                        <div id="content20" class="subsectioncontent standardsubsection">
+                            <ul>
+                                    <li>pkg:pypi/greenlet@3.5.6
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l11_7515bdb6d93ebe35bbaca69f6dc373fbaab897f6"></a>itsdangerous:2.2.0</h3>
+                    <div class="subsectioncontent notvulnerable">
+                        <p>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:itsdangerous/2.2.0<br/>
+                        </p>
+                        <h4 id="header21" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content21" class="subsectioncontent standardsubsection hidden">
+                            <table class="lined fullwidth" border="0">
+                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>itsdangerous</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>itsdangerous</td><td>Highest</td></tr>
+                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>2.2.0</td><td>Highest</td></tr>
+                            </table>
+                        </div>
+                        <h4 id="header22" class="subsectionheader white">Identifiers</h4>
+                        <div id="content22" class="subsectioncontent standardsubsection">
+                            <ul>
+                                    <li>pkg:pypi/itsdangerous@2.2.0
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l12_c3966d9d8c2c5fa010a0b31b7feaae6fbebe2658"></a>python-dotenv:1.2.3</h3>
+                    <div class="subsectioncontent notvulnerable">
+                        <p>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:python-dotenv/1.2.3<br/>
+                        </p>
+                        <h4 id="header23" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content23" class="subsectioncontent standardsubsection hidden">
+                            <table class="lined fullwidth" border="0">
+                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>python-dotenv</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>python-dotenv</td><td>Highest</td></tr>
+                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>1.2.3</td><td>Highest</td></tr>
+                            </table>
+                        </div>
+                        <h4 id="header24" class="subsectionheader white">Identifiers</h4>
+                        <div id="content24" class="subsectioncontent standardsubsection">
+                            <ul>
+                                    <li>pkg:pypi/python-dotenv@1.2.3
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
+                                </li>
+                            </ul>
+                        </div>
+                </div>
+                    <h3 class="subsectionheader standardsubsection notvulnerable"><a name="l13_57d2d3d88a6510cc2b69a535bdbee68cc4d20598"></a>typing_extensions:4.16.0</h3>
+                    <div class="subsectioncontent notvulnerable">
+                        <p>
+                            <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:typing_extensions/4.16.0<br/>
+                        </p>
+                        <h4 id="header25" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                        <div id="content25" class="subsectioncontent standardsubsection hidden">
+                            <table class="lined fullwidth" border="0">
+                                <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
+                                    <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>typing_extensions</td><td>Highest</td></tr>
+                                    <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>typing_extensions</td><td>Highest</td></tr>
+                                    <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>4.16.0</td><td>Highest</td></tr>
+                            </table>
+                        </div>
+                        <h4 id="header26" class="subsectionheader white">Identifiers</h4>
+                        <div id="content26" class="subsectioncontent standardsubsection">
+                            <ul>
+                                    <li>pkg:pypi/typing-extensions@4.16.0
+                                    &nbsp;&nbsp;(<i>Confidence</i>:Highest)
+                                </li>
+                            </ul>
+                        </div>
+                </div>
 
 
 
+                    <h2 id="header-suppressed" class="expandable">Suppressed Vulnerabilities</h2>
+                    <div id="content-suppressed" class="hidden">
+
+                            <h3 class="subsectionheader standardsubsection">PyJWT:2.14.0</h3>
+                            <div class="subsectioncontent">
+                                <p>
+                                    <b>File&nbsp;Path:</b>&nbsp;/tmp/lab-scan/requirements.txt:PyJWT/2.14.0<br/>
+                                </p>
+                                <h4 id="header27" class="subsectionheader expandable expandablesubsection white">Evidence</h4>
+                                <div id="content27" class="subsectioncontent standardsubsection hidden">
+                                    <table class="lined fullwidth" border="0">
+                                        <tr><th class="left" style="width:10%;">Type</th><th class="left" style="width:10%;">Source</th><th class="left" style="width:20%;">Name</th><th class="left" style="width:50%;">Value</th><th class="left" style="width:10%;">Confidence</th></tr>
+                                            <tr><td>Vendor</td><td>requirements.txt</td><td>vendor</td><td>PyJWT</td><td>Highest</td></tr>
+                                            <tr><td>Product</td><td>requirements.txt</td><td>product</td><td>PyJWT</td><td>Highest</td></tr>
+                                            <tr><td>Version</td><td>requirements.txt</td><td>version</td><td>2.14.0</td><td>Highest</td></tr>
+                                    </table>
+                                </div>
+                                <h4 id="header28" class="subsectionheader white">Suppressed Identifiers</h4>
+                                <div id="content28" class="subsectioncontent standardsubsection">
+                                    <ul><li><b>None</b></li></ul>
+                                </div>
+                            <h4 id="header29" class="subsectionheader collapsed collaspablesubsection white">Suppressed Vulnerabilities</h4>
+                            <div id="content29" class="subsectioncontent standardsubsection">
+                                        <p><b><a target="_blank" href="https://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2025-45770">CVE-2025-45770</a></b>&nbsp;&nbsp;<span class="suppressedLabel" >suppressed</span></p>
+                                    <p>                                    <pre>jwt v5.4.3 was discovered to contain weak encryption. NOTE: this issue has been disputed on the basis that key lengths are expected to be set by an application, not by this library. This dispute is subject to review under CNA rules 4.1.4, 4.1.14, and other rules; the dispute tagging is not meant to recommend an outcome for this CVE Record.</pre>
+
+                                        CWE-326 Inadequate Encryption Strength<br/><br/>
+                                        Notes: CVE-2025-45770 concerns the PHP package lcobucci/jwt, not Python PyJWT.
+        NVD: https://nvd.nist.gov/vuln/detail/CVE-2025-45770
+        Product: https://lcobucci-jwt.readthedocs.io/en/stable/
+        Only this CVE for the installed PyJWT version is excluded.<br/><br/>
+                                    CVSSv3:
+                                    <ul><li>HIGH (7.0)</li>
+                                        <li>CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:L/A:H/E:P/RC:R/MAV:A</li></ul>
+                                        <br/>References: <ul>
+                                            <li>cve@mitre.org - <a target="_blank" href="https://github.com/lcobucci">PRODUCT</a></li>
+                                            <li>cve@mitre.org - <a target="_blank" href="https://github.com/lcobucci/jwt">PRODUCT</a></li>
+                                            <li>cve@mitre.org - <a target="_blank" href="https://gist.github.com/ZupeiNie/cd88c827eef11a1618f8baacccd240fb">THIRD_PARTY_ADVISORY</a></li>
+                                        </ul>
+                                    </p>
+                                            <p>Vulnerable Software &amp; Versions:<ul>
+                                                <li class="vs1"><a target="_blank" href="https://nvd.nist.gov/vuln/search#/nvd/home?sortOrder=3&amp;sortDirection=2&amp;cpeFilterMode=applicability&amp;resultType=records&amp;cpeName=cpe%3A2.3%3Aa%3Ajwt_project%3Ajwt%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A">cpe:2.3:a:jwt_project:jwt:*:*:*:*:*:*:*:* versions up to (including) 5.4.3</a></li>
+                                            </ul></p>
+                                </div>
+                            </div>
+                    </div>
             </div>
         </div>
         <div>

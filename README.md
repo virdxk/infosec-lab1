@@ -125,26 +125,34 @@ pip-audit -r requirements.txt --strict
 
 Dependency-Check анализирует отдельный `requirements.txt` со всеми установленными прикладными зависимостями, включая транзитивные. Для Python включён `--enableExperimental`. Порог отказа `--failOnCVSS 7` соответствует высоким и критическим уязвимостям. База загружается из официальных JSON 2.0 feeds NVD и кэшируется; аккаунт Snyk и NVD API key не требуются. Дополнительный pip-audit проверяет Python-пакеты по специализированной базе и завершает задачу ошибкой при любой найденной известной уязвимости.
 
-Для этого Python-проекта отключены RetireJS (JavaScript), OSS Index (отдельный сервис с учётными данными), автоматическая загрузка исключений и проверка новой версии сканера. NVD-анализ включён; собственные исключения уязвимостей не добавлены. Ошибка скачивания или сканирования не превращается в успешную проверку.
+Для этого Python-проекта отключены RetireJS (JavaScript), OSS Index (отдельный сервис с учётными данными), автоматическая загрузка исключений и проверка новой версии сканера. NVD-анализ включён. В `.github/dependency-check-suppressions.xml` исключено одно подтверждённое ложное совпадение: CVE-2025-45770 для PyJWT 2.14.0. В записи NVD указан PHP-пакет `lcobucci/jwt`, а здесь используется Python-пакет PyJWT. Исключение ограничено конкретными пакетом, версией и CVE; остальные находки проверяются как обычно. Ошибка скачивания или сканирования не превращается в успешную проверку.
 
 При проверке 30.09.2026 аудит обнаружил известные уязвимости PyJWT 2.13.0. Версия обновлена до 2.14.0; повторный pip-audit не обнаружил известных уязвимостей. Тесты входа, подписи JWT и контроля доступа после обновления проходят.
 
 ## Результаты и материалы
 
-Локальная проверка 30.09.2026: 51 тест пройден до обновления зависимости, 38 затронутых тестов повторно пройдены после обновления; Bandit без замечаний; Dependency-Check проверил 12 зависимостей без найденных уязвимостей; pip-audit также без найденных уязвимостей.
+Проверенный запуск GitHub Actions от 30.09.2026: [CI #7, коммит e312fb9](https://github.com/virdxk/infosec-lab1/actions/runs/36704738027). Все три задачи завершились успешно:
+
+- pytest: **51 тест пройден**;
+- Bandit: **0 замечаний**;
+- OWASP Dependency-Check: **13 зависимостей, 0 активных находок**, одно обоснованное ложное совпадение исключено;
+- pip-audit: **13 зависимостей, 0 известных уязвимостей**.
+
+Сканирование отражает состояние баз уязвимостей на момент запуска и не доказывает отсутствие всех возможных проблем.
+
+Материалы проверки:
 
 - [Фактические запросы и ответы curl](docs/curl-session.md): 11 сценариев, отдельная временная БД.
-- [Локальный отчёт Bandit](docs/reports/bandit.json).
-- [Локальный отчёт pip-audit](docs/reports/pip-audit.json).
-- [Отчёт OWASP Dependency-Check](docs/reports/dependency-check-report.html).
+- [Отчёт Bandit из CI](docs/reports/bandit.json).
+- [Отчёт pip-audit из CI](docs/reports/pip-audit.json).
+- [Отчёт OWASP Dependency-Check из CI](docs/reports/dependency-check-report.html) и [его JSON-версия](docs/reports/dependency-check-report.json).
+- [Запуски pipeline, завершившиеся успешно](https://github.com/virdxk/infosec-lab1/actions/workflows/ci.yml?query=is%3Asuccess): новые коммиты с материалами отчёта также запускают CI; скриншоты ниже относятся к проверке кода в `e312fb9`.
 
-Новый запуск GitHub Actions для окончательного набора изменений ещё не подтверждён. Перед сдачей нужна ссылка на его успешный результат и скриншоты его SAST/SCA-задач. Существующие изображения ниже относятся к прежней версии pipeline с pip-audit и не подтверждают новый Dependency-Check.
+![Успешный запуск GitHub Actions](docs/screenshots/01-actions-run-summary.png)
 
-![Предыдущий запуск GitHub Actions](docs/screenshots/01-actions-run-summary.png)
+![Успешная проверка SAST: Bandit](docs/screenshots/02-ci-sast-bandit.png)
 
-![Предыдущий отчёт SAST](docs/screenshots/02-ci-sast-bandit.png)
-
-![Предыдущий отчёт SCA с pip-audit](docs/screenshots/03-ci-sca-pip-audit.png)
+![Успешная проверка SCA: Dependency-Check и pip-audit](docs/screenshots/03-ci-sca-dependency-check.png)
 
 ## Навигация по коду
 
@@ -168,3 +176,5 @@ Dependency-Check анализирует отдельный `requirements.txt` с
 - [OWASP Password Storage](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
 - [JWT](https://www.jwt.io/introduction).
 - [Dependency-Check: Pip Analyzer](https://dependency-check.github.io/DependencyCheck/analyzers/pip.html).
+- [NVD: CVE-2025-45770](https://nvd.nist.gov/vuln/detail/CVE-2025-45770) и [документация PHP-библиотеки lcobucci/jwt](https://lcobucci-jwt.readthedocs.io/en/stable/): обоснование ложного совпадения.
+- [Dependency-Check: исключения ложных совпадений](https://dependency-check.github.io/DependencyCheck/general/suppression.html).
