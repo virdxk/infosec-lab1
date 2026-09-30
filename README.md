@@ -73,4 +73,16 @@ curl -s -X POST "$BASE_URL/api/posts" \
 
 ## Результаты
 
-<!-- RESULTS -->
+Проверенный запуск: [CI #9, коммит 927bd82](https://github.com/virdxk/infosec-lab1/actions/runs/36760742483).
+
+- Tests: 14 тестов пройдено.
+- Bandit: 0 замечаний.
+- OWASP Dependency-Check: 13 зависимостей, 0 уязвимостей, одно ложное срабатывание исключено.
+
+![Запуск CI #9](docs/screenshots/01-actions-run-summary.png)
+
+![Отчёт Bandit](docs/screenshots/02-ci-sast-bandit.png)
+
+![Отчёт OWASP Dependency-Check](docs/screenshots/03-ci-sca-dependency-check.png)
+
+Отчёты из артефактов: [bandit-report.txt](docs/reports/bandit-report.txt), [dependency-check-report.html](docs/reports/dependency-check-report.html), [dependency-check-report.json](docs/reports/dependency-check-report.json). Отчёт по работе: [docs/report.pdf](docs/report.pdf).

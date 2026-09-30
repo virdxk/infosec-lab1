@@ -5,19 +5,19 @@
         "dataSource": [
 {
                 "name": "NVD API Last Checked",
-                "timestamp": "2026-09-30T10:49:36Z"
+                "timestamp": "2026-09-30T18:45:01Z"
             }
 ,{
                 "name": "NVD API Last Modified",
-                "timestamp": "2026-09-30T06:00:05-04"
+                "timestamp": "2026-09-30T14:00:05-04"
             }
 ,{
                 "name": "NVD Cache Last Checked",
-                "timestamp": "2026-09-30T10:49:36Z"
+                "timestamp": "2026-09-30T18:45:01Z"
             }
 ,{
                 "name": "NVD Cache Last Modified",
-                "timestamp": "2026-09-30T06:00:05-04"
+                "timestamp": "2026-09-30T14:00:05-04"
             }
         ]
 
@@ -25,7 +25,7 @@
     },
     "projectInfo": {
         "name": "infosec-lab1",
-        "reportDate": "2026-09-30T10:51:54.848262737Z",
+        "reportDate": "2026-09-30T18:45:39.981336655Z",
         "credits": {
             "NVD": "This product uses the NVD API but is not endorsed or certified by the NVD. This report contains data retrieved from the National Vulnerability Database: https://nvd.nist.gov",
             "CISA": "This report may contain data retrieved from the CISA Known Exploited Vulnerability Catalog: https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
@@ -224,7 +224,7 @@
 ,"url": "https:\/\/gist.github.com\/ZupeiNie\/cd88c827eef11a1618f8baacccd240fb","name": "THIRD_PARTY_ADVISORY"                    }                ],
                 "vulnerableSoftware": [
  {
-                        "software": {
+                        "software": { 
                             "id":"cpe:2.3:a:jwt_project:jwt:*:*:*:*:*:*:*:*"
 ,"vulnerabilityIdMatched":"true","versionEndIncluding":"5.4.3"                        }
                     }                ]
