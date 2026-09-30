@@ -9,5 +9,4 @@ def serialize_post(post: Post) -> dict:
         "title": str(escape(post.title)),
         "body": str(escape(post.body)),
         "author": str(escape(post.author.username)),
-        "created_at": post.created_at.isoformat(),
     }

@@ -3,32 +3,24 @@ import pytest
 from app import create_app
 from app.models import Post, User
 
-TEST_USERNAME = "alice"
-TEST_PASSWORD = "Al1ce-Str0ng-Pass!"
-TEST_SECRET = "test-secret-value-long-enough-for-hs256-abcdef"
+USERNAME = "alice"
+PASSWORD = "Al1ce-Str0ng-Pass!"
+SECRET = "test-secret-value-long-enough-for-hs256"
 
 
 @pytest.fixture
 def app(tmp_path):
-    database_url = f"sqlite:///{tmp_path / 'test.db'}"
-    application = create_app(
-        {
-            "TESTING": True,
-            "DATABASE_URL": database_url,
-            "JWT_SECRET": TEST_SECRET,
-            "BCRYPT_ROUNDS": 4,
-        }
+    app = create_app(
+        {"DATABASE_URL": f"sqlite:///{tmp_path / 'test.db'}", "JWT_SECRET": SECRET, "BCRYPT_ROUNDS": 4}
     )
-
-    with application.session_factory() as session:
-        user = User(username=TEST_USERNAME, role="user")
-        user.set_password(TEST_PASSWORD, application.config["BCRYPT_ROUNDS"])
+    with app.session_factory() as session:
+        user = User(username=USERNAME)
+        user.set_password(PASSWORD, 4)
         session.add(user)
-        session.commit()
+        session.flush()
         session.add(Post(author_id=user.id, title="Seeded", body="Seeded body"))
         session.commit()
-
-    return application
+    return app
 
 
 @pytest.fixture
@@ -37,11 +29,6 @@ def client(app):
 
 
 @pytest.fixture
-def token(client):
-    response = client.post("/auth/login", json={"username": TEST_USERNAME, "password": TEST_PASSWORD})
-    return response.get_json()["access_token"]
-
-
-@pytest.fixture
-def auth_headers(token):
-    return {"Authorization": f"Bearer {token}"}
+def auth_headers(client):
+    response = client.post("/auth/login", json={"username": USERNAME, "password": PASSWORD})
+    return {"Authorization": f"Bearer {response.get_json()['access_token']}"}

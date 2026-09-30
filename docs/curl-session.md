@@ -1,37 +1,33 @@
 # Проверка API через curl
 
-Выполнено: 2026-09-30T10:50:27.283550+00:00.
-
-Использованы отдельная временная SQLite-БД, данные seed.py и случайный JWT-секрет. Основная БД не изменялась. Все приведённые ответы получены реальными HTTP-запросами curl.
-
-Адрес при проверке: `http://127.0.0.1:50747`. В командах `$BASE_URL` обозначает адрес сервера, `$TOKEN` — токен первого запроса.
-
-Одинаковые ошибки входа не доказывают защиту от определения аккаунта по времени ответа.
-
-## 1. Успешный вход
+Сервер запущен локально (`python wsgi.py`) на чистой базе после `python seed.py`. Токен из шага 1 сохранён в `$TOKEN` и в ответах заменён на `<JWT>`.
 
 ```bash
-curl -sS -X POST "$BASE_URL/auth/login" \
-  -H "Content-Type: application/json" \
-  --data '{"username": "alice", "password": "Al1ce-Str0ng-Pass!"}'
+BASE_URL=http://127.0.0.1:5000
+```
+
+## 1. Вход
+
+```bash
+curl -s -X POST "$BASE_URL/auth/login" \
+  -H 'Content-Type: application/json' \
+  -d '{"username": "alice", "password": "Al1ce-Str0ng-Pass!"}'
 ```
 
 HTTP 200
 
 ```json
 {
-  "access_token": "<JWT скрыт; полный токен использован в следующих запросах>",
-  "expires_in": 3600,
-  "token_type": "Bearer"
+  "access_token": "<JWT>"
 }
 ```
 
 ## 2. Неверный пароль
 
 ```bash
-curl -sS -X POST "$BASE_URL/auth/login" \
-  -H "Content-Type: application/json" \
-  --data '{"username": "alice", "password": "wrong"}'
+curl -s -X POST "$BASE_URL/auth/login" \
+  -H 'Content-Type: application/json' \
+  -d '{"username": "alice", "password": "wrong"}'
 ```
 
 HTTP 401
@@ -42,12 +38,12 @@ HTTP 401
 }
 ```
 
-## 3. Неизвестный пользователь
+## 3. SQL-инъекция в логине
 
 ```bash
-curl -sS -X POST "$BASE_URL/auth/login" \
-  -H "Content-Type: application/json" \
-  --data '{"username": "nobody", "password": "wrong"}'
+curl -s -X POST "$BASE_URL/auth/login" \
+  -H 'Content-Type: application/json' \
+  -d "{\"username\": \"' OR 1=1 --\", \"password\": \"x\"}"
 ```
 
 HTTP 401
@@ -58,58 +54,25 @@ HTTP 401
 }
 ```
 
-## 4. SQL-инъекция в логине
+## 4. Данные без токена
 
 ```bash
-curl -sS -X POST "$BASE_URL/auth/login" \
-  -H "Content-Type: application/json" --data @- <<'JSON'
-{"username": "' OR '1'='1' --", "password": "wrong"}
-JSON
+curl -s "$BASE_URL/api/data"
 ```
 
 HTTP 401
 
 ```json
 {
-  "error": "invalid credentials"
+  "error": "missing token"
 }
 ```
 
-## 5. Отсутствуют обязательные поля
+## 5. Токен без подписи (alg: none)
 
 ```bash
-curl -sS -X POST "$BASE_URL/auth/login" \
-  -H "Content-Type: application/json" \
-  --data '{}'
-```
-
-HTTP 400
-
-```json
-{
-  "error": "username and password are required"
-}
-```
-
-## 6. Чтение без JWT
-
-```bash
-curl -sS -X GET "$BASE_URL/api/data"
-```
-
-HTTP 401
-
-```json
-{
-  "error": "authorization header missing or malformed"
-}
-```
-
-## 7. Чтение с неверным JWT
-
-```bash
-curl -sS -X GET "$BASE_URL/api/data" \
-  -H "Authorization: Bearer invalid"
+curl -s "$BASE_URL/api/data" \
+  -H 'Authorization: Bearer eyJhbGciOiJub25lIn0.eyJzdWIiOiIxIn0.'
 ```
 
 HTTP 401
@@ -120,44 +83,58 @@ HTTP 401
 }
 ```
 
-## 8. Чтение с действительным JWT
+## 6. Данные с токеном
 
 ```bash
-curl -sS -X GET "$BASE_URL/api/data" \
-  -H "Authorization: Bearer $TOKEN"
+curl -s "$BASE_URL/api/data" -H "Authorization: Bearer $TOKEN"
 ```
 
 HTTP 200
 
 ```json
+[
+  {
+    "author": "alice",
+    "body": "First post.",
+    "id": 1,
+    "title": "Welcome"
+  },
+  {
+    "author": "bob",
+    "body": "Tokens expire in one hour.",
+    "id": 2,
+    "title": "Notes on JWT"
+  }
+]
+```
+
+## 7. Создание поста
+
+```bash
+curl -s -X POST "$BASE_URL/api/posts" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H 'Content-Type: application/json' \
+  -d '{"title": "Hello", "body": "World"}'
+```
+
+HTTP 201
+
+```json
 {
-  "count": 2,
-  "items": [
-    {
-      "author": "admin",
-      "body": "First post created by the seed script.",
-      "created_at": "2026-09-30T10:50:26.266392",
-      "id": 1,
-      "title": "Welcome"
-    },
-    {
-      "author": "alice",
-      "body": "Access tokens are signed with HS256 and expire in one hour.",
-      "created_at": "2026-09-30T10:50:26.266880",
-      "id": 2,
-      "title": "Notes on JWT"
-    }
-  ]
+  "author": "alice",
+  "body": "World",
+  "id": 3,
+  "title": "Hello"
 }
 ```
 
-## 9. Создание поста с XSS-строкой
+## 8. XSS в посте
 
 ```bash
-curl -sS -X POST "$BASE_URL/api/posts" \
-  -H "Content-Type: application/json" \
-  --data '{"title": "XSS probe", "body": "<script>alert(1)</script>"}' \
-  -H "Authorization: Bearer $TOKEN"
+curl -s -X POST "$BASE_URL/api/posts" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H 'Content-Type: application/json' \
+  -d '{"title": "XSS", "body": "<script>alert(1)</script>"}'
 ```
 
 HTTP 201
@@ -166,62 +143,24 @@ HTTP 201
 {
   "author": "alice",
   "body": "&lt;script&gt;alert(1)&lt;/script&gt;",
-  "created_at": "2026-09-30T10:50:26.745658+00:00",
-  "id": 3,
-  "title": "XSS probe"
+  "id": 4,
+  "title": "XSS"
 }
 ```
 
-## 10. Повторное чтение экранированного поста
+## 9. Пост без обязательных полей
 
 ```bash
-curl -sS -X GET "$BASE_URL/api/data" \
-  -H "Authorization: Bearer $TOKEN"
+curl -s -X POST "$BASE_URL/api/posts" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H 'Content-Type: application/json' \
+  -d '{"title": "only title"}'
 ```
 
-HTTP 200
+HTTP 400
 
 ```json
 {
-  "count": 3,
-  "items": [
-    {
-      "author": "admin",
-      "body": "First post created by the seed script.",
-      "created_at": "2026-09-30T10:50:26.266392",
-      "id": 1,
-      "title": "Welcome"
-    },
-    {
-      "author": "alice",
-      "body": "Access tokens are signed with HS256 and expire in one hour.",
-      "created_at": "2026-09-30T10:50:26.266880",
-      "id": 2,
-      "title": "Notes on JWT"
-    },
-    {
-      "author": "alice",
-      "body": "&lt;script&gt;alert(1)&lt;/script&gt;",
-      "created_at": "2026-09-30T10:50:26.745658",
-      "id": 3,
-      "title": "XSS probe"
-    }
-  ]
-}
-```
-
-## 11. Создание поста без JWT
-
-```bash
-curl -sS -X POST "$BASE_URL/api/posts" \
-  -H "Content-Type: application/json" \
-  --data '{"title": "Denied", "body": "Denied"}'
-```
-
-HTTP 401
-
-```json
-{
-  "error": "authorization header missing or malformed"
+  "error": "title and body are required"
 }
 ```

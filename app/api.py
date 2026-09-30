@@ -14,31 +14,21 @@ def get_data():
     with current_app.session_factory() as session:
         posts = session.scalars(select(Post).order_by(Post.id)).all()
         items = [serialize_post(post) for post in posts]
-
-    return jsonify({"count": len(items), "items": items}), 200
+    return jsonify(items), 200
 
 
 @api_bp.post("/posts")
 def create_post():
     data = request.get_json(silent=True)
     if not isinstance(data, dict):
-        return jsonify({"error": "title and body are required"}), 400
-
+        data = {}
     title = data.get("title")
     body = data.get("body")
-
-    if (
-        not isinstance(title, str)
-        or not isinstance(body, str)
-        or not title.strip()
-        or not body.strip()
-    ):
+    if not isinstance(title, str) or not isinstance(body, str) or not title or not body:
         return jsonify({"error": "title and body are required"}), 400
 
     with current_app.session_factory() as session:
-        post = Post(author_id=g.current_user_id, title=title.strip(), body=body.strip())
+        post = Post(author_id=g.user_id, title=title, body=body)
         session.add(post)
         session.commit()
-        post_data = serialize_post(post)
-
-    return jsonify(post_data), 201
+        return jsonify(serialize_post(post)), 201

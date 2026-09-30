@@ -3,31 +3,23 @@ from datetime import datetime, timedelta, timezone
 import jwt
 from flask import current_app
 
-from app.models import User
-
-AUTH_SCHEME = "Bearer"
+ALGORITHM = "HS256"
 
 
-def issue_token(user: User) -> str:
+def issue_token(user_id: int) -> str:
     now = datetime.now(timezone.utc)
     payload = {
-        "sub": str(user.id),
-        "username": user.username,
-        "role": user.role,
-        "iat": int(now.timestamp()),
-        "exp": int((now + timedelta(seconds=current_app.config["JWT_TTL_SECONDS"])).timestamp()),
+        "sub": str(user_id),
+        "iat": now,
+        "exp": now + timedelta(seconds=current_app.config["JWT_TTL_SECONDS"]),
     }
-    return jwt.encode(
-        payload,
-        current_app.config["JWT_SECRET"],
-        algorithm=current_app.config["JWT_ALGORITHM"],
-    )
+    return jwt.encode(payload, current_app.config["JWT_SECRET"], algorithm=ALGORITHM)
 
 
 def decode_token(token: str) -> dict:
     return jwt.decode(
         token,
         current_app.config["JWT_SECRET"],
-        algorithms=[current_app.config["JWT_ALGORITHM"]],
-        options={"require": ["exp", "iat", "sub"]},
+        algorithms=[ALGORITHM],
+        options={"require": ["sub", "iat", "exp"]},
     )
