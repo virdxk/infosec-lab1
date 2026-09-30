@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+    <suppress>
+        <notes><![CDATA[
+        CVE-2025-45770 concerns the PHP package lcobucci/jwt, not Python PyJWT.
+        NVD: https://nvd.nist.gov/vuln/detail/CVE-2025-45770
+        Product: https://lcobucci-jwt.readthedocs.io/en/stable/
+        Only this CVE for the installed PyJWT version is excluded.
+        ]]></notes>
+        <packageUrl>pkg:pypi/pyjwt@2.14.0</packageUrl>
+        <cve>CVE-2025-45770</cve>
+    </suppress>
+</suppressions>

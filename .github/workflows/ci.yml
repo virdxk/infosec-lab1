@@ -78,7 +78,7 @@ jobs:
             -o /tmp/dependency-check.zip
           echo "44d920d1ec03e948df862a253f0912782a31b9beee8a7c8895b9cb95760176ed  /tmp/dependency-check.zip" | sha256sum --check
           unzip -q /tmp/dependency-check.zip -d /tmp
-      - uses: actions/cache@v4
+      - uses: actions/cache/restore@v4
         with:
           path: ~/.cache/dependency-check
           key: dependency-check-13-${{ runner.os }}-${{ github.run_id }}
@@ -90,8 +90,15 @@ jobs:
             --enableExperimental --format HTML --format JSON \
             --out reports --data "$HOME/.cache/dependency-check" \
             --failOnCVSS 7 --disableOssIndex --disableRetireJs \
+            --suppression .github/dependency-check-suppressions.xml \
             --disableHostedSuppressions --disableVersionCheck \
             --nvdDatafeed 'https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-{0}.json.gz'
+      - name: Save vulnerability database
+        if: ${{ !cancelled() }}
+        uses: actions/cache/save@v4
+        with:
+          path: ~/.cache/dependency-check
+          key: dependency-check-13-${{ runner.os }}-${{ github.run_id }}
       - name: Audit Python dependencies
         if: ${{ !cancelled() }}
         run: |
