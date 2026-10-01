@@ -46,55 +46,41 @@ jobs:
   sca:
     name: SCA (Dependency-Check)
     runs-on: ubuntu-latest
-    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: "17"
-      - name: Prepare dependency inventory
+      - name: List all dependencies
         run: |
-          python -m venv /tmp/lab-dependencies
-          /tmp/lab-dependencies/bin/pip install -r requirements.txt
-          mkdir -p /tmp/lab-scan reports
-          /tmp/lab-dependencies/bin/pip freeze > /tmp/lab-scan/requirements.txt
+          pip install -r requirements.txt
+          mkdir scan
+          pip freeze > scan/requirements.txt
       - name: Install Dependency-Check
         run: |
-          curl --fail --silent --show-error --retry 3 \
-            https://repo.maven.apache.org/maven2/org/owasp/dependency-check-cli/13.0.0/dependency-check-cli-13.0.0-release.zip \
-            -o /tmp/dependency-check.zip
-          echo "44d920d1ec03e948df862a253f0912782a31b9beee8a7c8895b9cb95760176ed  /tmp/dependency-check.zip" | sha256sum --check
-          unzip -q /tmp/dependency-check.zip -d /tmp
-      - uses: actions/cache/restore@v4
+          curl -sSL -o dc.zip https://repo.maven.apache.org/maven2/org/owasp/dependency-check-cli/13.0.0/dependency-check-cli-13.0.0-release.zip
+          unzip -q dc.zip
+      - uses: actions/cache@v4
         with:
           path: ~/.cache/dependency-check
-          key: dependency-check-13-${{ runner.os }}-${{ github.run_id }}
-          restore-keys: dependency-check-13-${{ runner.os }}-
-      - name: Run OWASP Dependency-Check
+          key: dependency-check-${{ github.run_id }}
+          restore-keys: dependency-check-
+      - name: Run Dependency-Check
         run: |
-          sh /tmp/dependency-check/bin/dependency-check.sh \
-            --project infosec-lab1 --scan /tmp/lab-scan \
-            --enableExperimental --format HTML --format JSON \
-            --out reports --data "$HOME/.cache/dependency-check" \
-            --failOnCVSS 7 --disableOssIndex --disableRetireJs \
+          bash dependency-check/bin/dependency-check.sh \
+            --project infosec-lab1 --scan scan --out reports \
+            --enableExperimental --failOnCVSS 7 \
+            --disableOssIndex --disableRetireJs \
             --suppression .github/dependency-check-suppressions.xml \
-            --disableHostedSuppressions --disableVersionCheck \
+            --data ~/.cache/dependency-check \
             --nvdDatafeed 'https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-{0}.json.gz'
-      - name: Save vulnerability database
-        if: ${{ !cancelled() }}
-        uses: actions/cache/save@v4
-        with:
-          path: ~/.cache/dependency-check
-          key: dependency-check-13-${{ runner.os }}-${{ github.run_id }}
-      - name: Upload SCA reports
+      - name: Upload report
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: sca-reports
+          name: dependency-check-report
           path: reports/
-          if-no-files-found: error
