@@ -67,22 +67,22 @@ curl -s -X POST "$BASE_URL/api/posts" \
 
 1. **Tests.** pytest, 14 тестов: вход, SQL-инъекция, хэш пароля, доступ без токена, поддельный, `alg: none` и просроченный токены, создание поста, XSS.
 2. **SAST.** Bandit проверяет код приложения и падает на замечаниях уровня medium и выше. Отчёт сохраняется артефактом `bandit-report`.
-3. **SCA.** OWASP Dependency-Check проверяет все зависимости, включая транзитивные, и падает при уязвимости с CVSS 7 и выше. Отчёты HTML и JSON сохраняются артефактом `sca-reports`.
+3. **SCA.** OWASP Dependency-Check проверяет все зависимости, включая транзитивные, и падает при уязвимости с CVSS 7 и выше. HTML-отчёт сохраняется артефактом `dependency-check-report`. База уязвимостей NVD кэшируется между запусками, поэтому повторный скан занимает секунды.
 
 В [.github/dependency-check-suppressions.xml](.github/dependency-check-suppressions.xml) исключено одно ложное срабатывание: CVE-2025-45770 относится к PHP-библиотеке `lcobucci/jwt`, а сканер сопоставил его с Python-пакетом PyJWT.
 
 ## Результаты
 
-Проверенный запуск: [CI #9, коммит 927bd82](https://github.com/virdxk/infosec-lab1/actions/runs/36760742483).
+Проверенный запуск: [CI #12, коммит 1fd3837](https://github.com/virdxk/infosec-lab1/actions/runs/36821398841).
 
 - Tests: 14 тестов пройдено.
 - Bandit: 0 замечаний.
 - OWASP Dependency-Check: 13 зависимостей, 0 уязвимостей, одно ложное срабатывание исключено.
 
-![Запуск CI #9](docs/screenshots/01-actions-run-summary.png)
+![Запуск CI #12](docs/screenshots/01-actions-run-summary.png)
 
 ![Отчёт Bandit](docs/screenshots/02-ci-sast-bandit.png)
 
 ![Отчёт OWASP Dependency-Check](docs/screenshots/03-ci-sca-dependency-check.png)
 
-Отчёты из артефактов: [bandit-report.txt](docs/reports/bandit-report.txt), [dependency-check-report.html](docs/reports/dependency-check-report.html), [dependency-check-report.json](docs/reports/dependency-check-report.json). Отчёт по работе: [docs/report.pdf](docs/report.pdf).
+Отчёты из артефактов: [bandit-report.txt](docs/reports/bandit-report.txt), [dependency-check-report.html](docs/reports/dependency-check-report.html). Отчёт по работе: [docs/report.pdf](docs/report.pdf).
