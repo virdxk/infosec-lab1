@@ -8,3 +8,6 @@ __pycache__/
 docs/theory.md
 
 *.gost-meta.json
+
+.gost-report/
+docs/report.docx
