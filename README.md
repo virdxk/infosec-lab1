@@ -73,13 +73,13 @@ curl -s -X POST "$BASE_URL/api/posts" \
 
 ## Результаты
 
-Проверенный запуск: [CI #12, коммит 1fd3837](https://github.com/virdxk/infosec-lab1/actions/runs/36821398841).
+Проверенный запуск: [CI #15, коммит 1cf17df](https://github.com/virdxk/infosec-lab1/actions/runs/36873402901).
 
 - Tests: 14 тестов пройдено.
 - Bandit: 0 замечаний.
 - OWASP Dependency-Check: 13 зависимостей, 0 уязвимостей, одно ложное срабатывание исключено.
 
-![Запуск CI #12](docs/screenshots/01-actions-run-summary.png)
+![Запуск CI #15](docs/screenshots/01-actions-run-summary.png)
 
 ![Отчёт Bandit](docs/screenshots/02-ci-sast-bandit.png)
 
